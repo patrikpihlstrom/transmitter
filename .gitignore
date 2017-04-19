@@ -1,5 +1,6 @@
 config.json
 test/config.json
+passwords
 *.swp
 *.swo
 *.pyc

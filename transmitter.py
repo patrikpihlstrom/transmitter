@@ -1,10 +1,11 @@
 #!/usr/bin/python
 
 import sys
-import json
-import transmissionrpc
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from transmitter import transmitter
 
 
-if len(sys.argv) > 1:
-    tc = transmissionrpc.Client('***REMOVED***', port=***REMOVED***, user='***REMOVED***', password='***REMOVED***')
-    tc.add_torrent(sys.argv[1])
+transmitter.Transmitter.run()
+

@@ -10,19 +10,25 @@ from transmitter import transmitter
 
 
 class TestTransmitter(unittest.TestCase):
+    transmitter = None
+
+    def __init__(self, function):
+        super(TestTransmitter, self).__init__(function)
+        self.transmitter = transmitter.Transmitter
+
     def test_parse_config(self):
-        config = transmitter.parse_config('./example_config.json')
+        config = self.transmitter.parse_config('./example_config.json')
         example_config = {"user": "user", "password": "password", "host": "host", "port": 123}
         self.assertEqual(config, example_config)
 
     def test_parse_config_not_found(self):
-        self.assertFalse(transmitter.parse_config('./not_found.json'))
+        self.assertFalse(self.transmitter.parse_config('./not_found.json'))
 
     def test_upload_magnet(self):
-        config = transmitter.parse_config('./config.json')
+        config = self.transmitter.parse_config('./config.json')
         self.assertNotEqual(config, False)
 
-        client = transmitter.get_client(transmitter.parse_config('./config'))
+        client = self.transmitter.get_client(transmitter.parse_config('./config'))
         torrents = client.get_torrents()
         client.add_torrent(config['magnet'])
         self.assertNotEqual(torrents, client.get_torrents())
