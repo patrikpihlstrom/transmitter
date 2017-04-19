@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-import PTN
+import sys
+import json
+import transmissionrpc
 
-info = PTN.parse('Some.Show.s01e01')
-print info
+
+if len(sys.argv) > 1:
+    tc = transmissionrpc.Client('***REMOVED***', port=***REMOVED***, user='***REMOVED***', password='***REMOVED***')
+    tc.add_torrent(sys.argv[1])
