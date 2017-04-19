@@ -6,19 +6,20 @@ import transmissionrpc
 
 
 class Transmitter:
-    #TODO: implement
     @classmethod
     def upload_magnet(self, magnet, client):
-        return False
+        return client.add_torrent(magnet)
 
-    #TODO: implement
     @classmethod
     def parse_config(self, file):
+        with open(file) as config:
+            return json.load(config)
+
         return False
 
     @classmethod
     def get_client(self, config):
-        return transmissionrpc.Client(config.host, config.port, config.user, config.password)
+        return transmissionrpc.Client(config['host'], config['port'], config['user'], config['password'])
 
     @classmethod
     def run(self, magnet = None):
