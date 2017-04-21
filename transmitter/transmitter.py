@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import os
 import json
 import transmissionrpc
 
@@ -26,7 +27,10 @@ class Transmitter:
         if magnet == None and len(sys.argv) > 1:
             magnet = sys.argv[1]
 
-        config = parse_config('../config.json')
-        client = get_client(config)
-        status = upload_magnet(magnet, config, client)
+        config = self.parse_config(os.path.dirname(os.path.abspath(__file__)) + '/config.json')
+        client = self.get_client(config)
+        status = self.upload_magnet(magnet, client)
 
+if __name__ == "__main__":
+    transmitter = Transmitter()
+    transmitter.run()

@@ -4,4 +4,7 @@ passwords
 *.swp
 *.swo
 *.pyc
+build
+dist
+.eggs
 
