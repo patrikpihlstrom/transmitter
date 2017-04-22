@@ -17,8 +17,6 @@ transmitter.py takes one argument containing the magnet link. The server credent
 	"port": 9091
 }
 ```
-
-command line
 ```
 $ python transmitter.py magnet:?xt=urn:btih:02ca77a6a047fd37f04337437d18f82e61861084&dn=archlinux-2017.04.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://tracker.archlinux.org:6969/announce
 ```
