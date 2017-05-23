@@ -3,5 +3,6 @@
 	"password": "password",
 	"host": "host",
 	"port": 123,
+	"downloads": "~/Downloads/",
 	"magnet": ""
 }

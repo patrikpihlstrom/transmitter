@@ -17,6 +17,14 @@ class TestTransmitter(unittest.TestCase):
         super(TestTransmitter, self).__init__(function)
         self.transmitter = transmitter.Transmitter
 
+    def setUp(self):
+        # get current torrents
+        pass
+
+    def tearDown(self):
+        # remove added test torrents
+        pass
+
     def test_upload_magnet(self):
         config = self.transmitter.parse_config('./config.json')
         self.assertNotEqual(config, False)
@@ -28,6 +36,10 @@ class TestTransmitter(unittest.TestCase):
         #time.sleep(10)
         self.assertNotEqual(str(torrents), str(client.get_torrents()))
         self.assertTrue(upload)
+
+    def test_watch_downloads_directory(self):
+        # add .torrent files
+        pass
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()

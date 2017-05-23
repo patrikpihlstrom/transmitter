@@ -2,5 +2,6 @@
 	"user": "user",
 	"password": "password",
 	"host": "host",
-	"port": 123
+	"port": 123,
+	"downloads": "~/Downloads/"
 }
